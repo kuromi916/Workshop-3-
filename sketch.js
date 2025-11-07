@@ -1,18 +1,20 @@
 let Cat;
 
+
+
 function preload(){
-Cat = loadImage("Cat_gif.GIF");
+Cat = loadImage("Cat.JPG");
 }
 
 function setup() 
 {
-     image (Cat, width/2, height/2);
+    
 	createCanvas(windowWidth,windowHeight);
     background("gray");
-    //loadImage("Cat_gif.GIF");
+   // lockGestures();
 }
 
 function draw()
 {
- //image (Cat, width/2, height/2);
+ image(Cat, 100,5,500,800);
 }
