@@ -1,20 +1,25 @@
 let Cat;
-
+let BG; 
 
 
 function preload(){
-Cat = loadImage("Cat.JPG");
+Cat = loadImage("Cat2.GIF");
+BG = loadImage ("Back_Ground.PNG");
 }
 
 function setup() 
 {
     
 	createCanvas(windowWidth,windowHeight);
-    background("gray");
+   
    // lockGestures();
+   imageMode(CENTER);
 }
 
 function draw()
 {
- image(Cat, 100,5,500,800);
+ background(255) ;
+  image(BG,width/5,height/2,600,windowHeight);  
+ image(Cat,width/4.5,height/3.5,500,700);
+
 }
