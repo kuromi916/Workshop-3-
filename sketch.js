@@ -14,7 +14,7 @@ BG = loadImage ("Background.PNG");
 }
 function setup()
 {
-	createCanvas(windowWidth,windowHeight);
+	createCanvas(500,1000);
   imageMode(CENTER);
   collideDebug(true);
   //lockGestures();
