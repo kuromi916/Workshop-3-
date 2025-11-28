@@ -14,7 +14,7 @@ BG = loadImage ("Background.PNG");
 }
 function setup()
 {
-	createCanvas(1100,1900);
+	createCanvas(1100,2000);
   imageMode(CENTER);
   collideDebug(true);
   //lockGestures();
@@ -27,7 +27,7 @@ function draw(){
  let countdown = 120-floor(millis()/1000); 
 
 background(255) ;
-image(BG,width/2,height/2,1100,1900);  
+image(BG,width/2,height/2,1100,2000);  
 image(Cat,width/1.3,height/2.75,700,900);
 
 
