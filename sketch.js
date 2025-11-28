@@ -1,36 +1,116 @@
 let Cat;
 let BG; 
+let rect1;
+let rect2; 
 
-
+let hitX = 230;
+let hitWidth = 50;
+let twoMinutes = 120000;
+let newTarget = false;
 
 function preload(){
 Cat = loadImage("Cat2.GIF");
-BG = loadImage ("Back_Ground.PNG");
+BG = loadImage ("Background.PNG");
 }
-
-function setup() 
+function setup()
 {
 	createCanvas(windowWidth,windowHeight);
-   
-   // lockGestures();
+   //lockGestures();
    imageMode(CENTER);
+   collideDebug(true);
 }
 
-function draw()
-{
+var hit = false;
 
+function draw(){
  
+ let countdown = 120-floor(millis()/1000); 
+
+background(255) ;
+image(BG,width/5,height/2,500,windowHeight);  
+image(Cat,width/3.5,height/2.75,300,400);
+
+text(countdown,width/2,height/2);
+
+//------------Level 1 --------------//
+fill("orange");
+rect1 = rect(175, 530, 120, 20); //x, y , rectangle size
+
+// red rectangle base - negative space
+
+fill("green");
+rect2 = rect(hitX,530, hitWidth,20);
+// green rectangle - hit space 
+
+  // Calculate the coordinates.
+  
+  let x = 60 * sin(frameCount * 0.05) + 233;
+  let y = 530;
+
+  // Draw the oscillator.
+  //line(50, y, x, y);
+  fill("black");
+  rect( x,y,3,20);
+//===================================//
+
+
+/*-----------Level 2 ---------------//
+fill("red");
+rect(170, 440, 120, 20);
+
+fill("green");
+rect(230,440, 10,20);
+
+let a = 60 * sin(frameCount * 0.05) + 230;
+let b = 440;
+
+  // Draw the oscillator.
+  //line(50, y, x, y);
+  fill("black");
+  rect( a,b,3,20);
+
+ //=================================*/
+  
+ // Use vectors as input:
+    // const mouse      = createVector(mouseX, mouseY);
+    // const p2         = createVector(350, 50);
+    // const rect_start = createVector(200, 300);
+    // const rect_size  = createVector(100, 150);
+    // hit = collideLineRectVector(mouse, p2, rect_start, rect_size);
+
+  hit1 = collideLineRect(x,y, 350, 50, 230, 530, 50, 20);
+  
+  if(hit1 === true && newTarget === true){
+ 
+    hitX = random(170,250);
+    hitWidth = random(5,50);
+    newTarget = false;
+/*    
+fill("red");
+rect(170, 440, 120, 20);
+
+fill("green");
+rect(230,440, 10,20);
+
+let a = 60 * sin(frameCount * 0.05) + 230;
+let b = 440;
+
+  // Draw the oscillator.
+  //line(50, y, x, y);
+  fill("black");
+  rect( a,b,3,20);
+    //stroke(hit1 ? color('blue') : 0);
+    print('colliding?', hit1);
+ */   
+}
+
+   
     
- background(255) ;
-  image(BG,width/5,height/2,600,windowHeight);  
- image(Cat,width/4.5,height/3.5,500,700);
-
+  }
+    
+    
+function mouseReleased()
+{
+  newTarget = true;
 }
 
-function mousePressed(){
-    Cat.pause();
-}
-
-function mouseReleased(){
-    Cat.play();
-}
