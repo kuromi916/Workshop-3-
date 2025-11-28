@@ -28,7 +28,7 @@ function draw(){
 
 background(255) ;
 image(BG,width/2,height/2,1100,2000);  
-image(Cat,width/1.3,height/2.75,700,900);
+image(Cat,900,height/1000,700,900);
 
 
 text(countdown,width/2,height/2);
