@@ -35,18 +35,18 @@ text(countdown,width/2,height/2);
 
 //------------Level 1 --------------//
 fill("orange");
-rect1 = rect(280, 1200, 120, 50); //x, y , rectangle size
+rect1 = rect(280, 1000, 120, 50); //x, y , rectangle size
 
 // red rectangle base - negative space
 
 fill("green");
-rect2 = rect(hitX, 1200, hitWidth, 50);
+rect2 = rect(hitX, 1000, hitWidth, 50);
 // green rectangle - hit space 
 
   // Calculate the coordinates.
   
-  let x = 280 * sin(frameCount * 0.05) + 233;
-  let y = 1200;
+  let x = 170 * sin(frameCount * 0.05) + 233;
+  let y = 1000;
 
   // Draw the oscillator.
   //line(50, y, x, y);
