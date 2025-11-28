@@ -3,7 +3,7 @@ let BG;
 let rect1;
 let rect2; 
 
-let hitX = 230;
+let hitX = 250;
 let hitWidth = 50;
 let twoMinutes = 120000;
 let newTarget = false;
@@ -35,7 +35,7 @@ text(countdown,width/2,height/2);
 
 //------------Level 1 --------------//
 fill("orange");
-rect1 = rect(175, 1200, 120, 20); //x, y , rectangle size
+rect1 = rect(250, 1200, 120, 20); //x, y , rectangle size
 
 // red rectangle base - negative space
 
