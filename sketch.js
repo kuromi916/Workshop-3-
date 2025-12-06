@@ -35,7 +35,7 @@ text(countdown,width/2,height/2);
 
 //------------Level 1 --------------//
 fill("orange");
-rect1 = rect(310, 1400, 300, 50); //x, y , rectangle size
+rect1 = rect(305, 1400, 310, 50); //x, y , rectangle size
 
 // red rectangle base - negative space
 
@@ -51,7 +51,7 @@ rect2 = rect(hitX, 1400, hitWidth, 50);
   // Draw the oscillator.
   //line(50, y, x, y);
   fill("white");
-  rect( x,y,3,50);
+  rect( x,y,4,50);
 //===================================//
 
 
