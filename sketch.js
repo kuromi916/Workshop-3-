@@ -3,7 +3,7 @@ let BG;
 let rect1;
 let rect2; 
 
-let hitX = 310;
+let hitX = 305;
 let hitWidth = 50;
 let twoMinutes = 120000;
 let newTarget = false;
@@ -83,7 +83,7 @@ let b = 440;
   
   if(hit1 === true && newTarget === true){
  
-    hitX = random(280,1100);
+    hitX = random(305,1400);
     hitWidth = random(5,50);
     newTarget = false;
 /*    
