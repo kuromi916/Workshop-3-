@@ -44,20 +44,11 @@ fill("orange");
 rect1 = rect(305, 1400, 310, 50); //x, y , rectangle size
 
 
-// fill("orange");
-// rect1 = rect(305, 1400, 310, 50); //x, y , rectangle size
-// // red rectangle base - negative space
-
-
 fill("green");
 rect2 = rect(hitX,1400, hitWidth,50);
 // green rectangle - hit space 
 
-// fill("green");
-// rect2 = rect(hitX, 1400, hitWidth, 50);
-// // green rectangle - hit space 
-
-  // Calculate the coordinates.
+  
 
    let x = 180 * sin(frameCount * 0.05) + 455;
     //  -180 = not work
@@ -81,17 +72,16 @@ hit1 = collideLineRect(x,y, 300, 150,   230,     1400,      50,          10);
     isCurrentlyTouching = false;
     
   }
+  if(hit === false){
+    isCurrentlyTouching === false;
+  }
 }
 /*    
-
-  //hit = collideLineRectVector(x,y,350,50,320,1400,100,50);
-                           
-  
+old versions: 
+  //hit = collideLineRectVector(x,y,350,50,320,1400,100,50);                     
   //if(hit === true ){//&& touchStarted === true)//
- 
    //hitX = random(305,1400);
    //hitWidth = random(5,50);
-   
   debug("Yes!");
 
   }*/
