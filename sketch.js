@@ -17,7 +17,7 @@ function setup()
 	createCanvas(1100,2000);
   imageMode(CENTER);
   collideDebug(true);
-  //lockGestures();
+  lockGestures();
 }
 
 var hit = false;
