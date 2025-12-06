@@ -6,7 +6,12 @@ let rect2;
 let hitX = 305;
 let hitWidth = 50;
 let twoMinutes = 120000;
+
 let isCurrentlyTouching = false;  // NEEDED - Track if screen is being touched
+let touchCounter = 0;             // NEEDED - Count total number of touches
+let touchStartTime = 0; // When current touch started (milliseconds)
+let touchDuration = 1; // How long current touch has been active (seconds)
+
 
 function preload(){
 Cat = loadImage("Cat2.GIF");
@@ -18,6 +23,7 @@ function setup()
   imageMode(CENTER);
   collideDebug(true);
   //lockGestures();
+  showDebug();
 }
 
 var hit = false;
@@ -25,6 +31,7 @@ var hit = false;
 function draw(){
  
  let countdown = 120-floor(millis()/1000); 
+ let touchDuration = (millis() - touchStartTime) / 1000;
 
 background(255) ;
 image(BG,width/2,height/2,1100,2000);  
@@ -72,42 +79,44 @@ let b = 440;
 
  //=================================*/
   
+ 
  // Use vectors as input:
-    // const mouse      = createVector(mouseX, mouseY);
-    // const p2         = createVector(350, 50);
-    // const rect_start = createVector(200, 300);
+    // const rect_start = createVector(200, 200);
     // const rect_size  = createVector(100, 150);
-    // hit = collideLineRectVector(mouse, p2, rect_start, rect_size);
+    // const mouse      = createVector(mouseX, mouseY);
+    // const rect2_size = createVector(50, 75);
+    // hit = collideRectRectVector(rect_start, rect_size, mouse, rect2_size);
 
-  hit1 = collideLineRect(x,y, 350, 50, 230, 530, 50, 20);
+  hit = collideRectRectVector(hitX,1400,305, hitWidth, x, y, 4, 50);
   //                           
   
-  if(hit1 === true && isCurrentlyTouching === true){
+  if(hit === true && touchStarted=== true){
  
     hitX = random(305,1400);
     hitWidth = random(5,50);
    // newTarget = false;
-    isCurrentlyTouching===false;
+    touchEnded===true;
+    //isCurrentlyTouching===false;
+    debug("Yes!");
   
 }
 
-   function touchStarted() 
+    function touchStarted() 
 {
   isCurrentlyTouching = true;
- 
+  touchCounter = touchCounter + 1;
+  touchStartTime = millis();
+  //debug("Touch Count: " + touchCounter);  
+  return false;  // Prevents default behavior
 }
 
 function touchEnded() 
 {
     isCurrentlyTouching = false;
-    
+    // Output final touch duration to debug panel
+    //debug("Touch Duration: " + touchDuration.toFixed(2) + " seconds");
+    //debug("--- Touch Ended ---");
+    return false;  // Prevents default behavior
 }
-    
+
   }
-    
-/*    
-function mouseReleased()
-{
-  newTarget = true;
-}
-*/
