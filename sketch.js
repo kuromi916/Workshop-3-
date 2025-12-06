@@ -3,11 +3,14 @@ let BG;
 let rect1;
 let rect2; 
 
-let hitX = 305;
+let hitX = 320;
 let hitWidth = 50;
-let twoMinutes = 120000;
-let touchStarted; 
 
+// let hitX = 320;
+// let hitWidth = 100;
+let twoMinutes = 120000;
+
+let isCurrentlyTouching = false;
 
 
 function preload(){
@@ -39,43 +42,59 @@ text(countdown,width/2,height/2);
 
 fill("orange");
 rect1 = rect(305, 1400, 310, 50); //x, y , rectangle size
-// red rectangle base - negative space
+
+
+// fill("orange");
+// rect1 = rect(305, 1400, 310, 50); //x, y , rectangle size
+// // red rectangle base - negative space
+
 
 fill("green");
-rect2 = rect(hitX, 1400, hitWidth, 50);
+rect2 = rect(hitX,1400, hitWidth,50);
 // green rectangle - hit space 
 
+// fill("green");
+// rect2 = rect(hitX, 1400, hitWidth, 50);
+// // green rectangle - hit space 
+
   // Calculate the coordinates.
-  
-  let x = 155 * sin(frameCount * 0.08) + 450;//240
+
+   let x = 180 * sin(frameCount * 0.05) + 455;
+    //  -180 = not work
+
   let y = 1400;
-
-  // Draw the oscillator.
-  //line(50, y, x, y);
-  fill("white");
-  rect( x,y,4,50);
-
- 
- // Use vectors as input:
-    // const rect_start = createVector(200, 200);
-    // const rect_size  = createVector(100, 150);
-    // const mouse      = createVector(mouseX, mouseY);
-    // const rect2_size = createVector(50, 75);
-    // hit = collideRectRectVector(rect_start, rect_size, mouse, rect2_size);
-
-  hit = collideRectRectVector(hitX,1400,305, hitWidth, x, y, 4, 50);
-  //                           
   
-  if(hit === true && touchStarted=== true){
+  // let x = 155 * sin(frameCount * 0.08) + 450;//240
+  // let y = 1400;
+
+
+  fill("black");
+  rect( x,y,3,50);
+
+hit1 = collideLineRect(x,y, 300, 150,   230,     1400,      50,          10);
+//                                    hitX     y position , Thickness,
+  
+  if(hit1 === true && isCurrentlyTouching === true){
  
-    hitX = random(305,1400);
+    hitX = random(305,580);
     hitWidth = random(5,50);
-   
-    debug("Yes!");
-  
-  if(touchStarted===true){
-    debug("yes!");
-    }
-
+    isCurrentlyTouching = false;
+    
   }
 }
+/*    
+
+  //hit = collideLineRectVector(x,y,350,50,320,1400,100,50);
+                           
+  
+  //if(hit === true ){//&& touchStarted === true)//
+ 
+   //hitX = random(305,1400);
+   //hitWidth = random(5,50);
+   
+  debug("Yes!");
+
+  }*/
+  function touchStarted(){ //mouse will not work when active
+    isCurrentlyTouching = true;
+   debug("Yay!")}
