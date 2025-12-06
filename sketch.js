@@ -45,13 +45,13 @@ rect2 = rect(hitX, 1400, hitWidth, 50);
 
   // Calculate the coordinates.
   
-  let x = 165 * sin(frameCount * 0.08) + 450;//240
+  let x = 155 * sin(frameCount * 0.08) + 450;//240
   let y = 1400;
 
   // Draw the oscillator.
   //line(50, y, x, y);
   fill("white");
-  rect( x,y,4,50);
+  rect( x,y,3,50);
 //===================================//
 
 
