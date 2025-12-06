@@ -35,7 +35,7 @@ text(countdown,width/2,height/2);
 
 //------------Level 1 --------------//
 fill("orange");
-rect1 = rect(310, 1400, 290, 50); //x, y , rectangle size
+rect1 = rect(310, 1400, 300, 50); //x, y , rectangle size
 
 // red rectangle base - negative space
 
