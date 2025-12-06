@@ -6,7 +6,7 @@ let rect2;
 let hitX = 305;
 let hitWidth = 50;
 let twoMinutes = 120000;
-let newTarget = false;
+let isCurrentlyTouching = false;  // NEEDED - Track if screen is being touched
 
 function preload(){
 Cat = loadImage("Cat2.GIF");
@@ -80,38 +80,34 @@ let b = 440;
     // hit = collideLineRectVector(mouse, p2, rect_start, rect_size);
 
   hit1 = collideLineRect(x,y, 350, 50, 230, 530, 50, 20);
+  //                           
   
-  if(hit1 === true && newTarget === true){
+  if(hit1 === true && isCurrentlyTouching === true){
  
     hitX = random(305,1400);
     hitWidth = random(5,50);
-    newTarget = false;
-/*    
-fill("red");
-rect(170, 440, 120, 20);
-
-fill("green");
-rect(230,440, 10,20);
-
-let a = 60 * sin(frameCount * 0.05) + 230;
-let b = 440;
-
-  // Draw the oscillator.
-  //line(50, y, x, y);
-  fill("black");
-  rect( a,b,3,20);
-    //stroke(hit1 ? color('blue') : 0);
-    print('colliding?', hit1);
- */   
+   // newTarget = false;
+    isCurrentlyTouching===false;
+  
 }
 
-   
+   function touchStarted() 
+{
+  isCurrentlyTouching = true;
+ 
+}
+
+function touchEnded() 
+{
+    isCurrentlyTouching = false;
+    
+}
     
   }
     
-    
+/*    
 function mouseReleased()
 {
   newTarget = true;
 }
-
+*/
