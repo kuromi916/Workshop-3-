@@ -3,7 +3,7 @@ let BG;
 let rect1;
 let rect2; 
 
-let hitX = 250;
+let hitX = 310;
 let hitWidth = 50;
 let twoMinutes = 120000;
 let newTarget = false;
@@ -51,7 +51,7 @@ rect2 = rect(hitX, 1400, hitWidth, 50);
   // Draw the oscillator.
   //line(50, y, x, y);
   fill("black");
-  rect( x,y,3,20);
+  rect( x,y,4,50);
 //===================================//
 
 
