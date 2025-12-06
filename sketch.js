@@ -6,7 +6,7 @@ let rect2;
 let hitX = 305;
 let hitWidth = 50;
 let twoMinutes = 120000;
-let touchStarted = false; 
+let touchStarted; 
 
 
 
@@ -19,7 +19,7 @@ function setup()
 	createCanvas(1100,2000);
   imageMode(CENTER);
   collideDebug(true);
-  //lockGestures();
+  lockGestures();
   showDebug();
 }
 
