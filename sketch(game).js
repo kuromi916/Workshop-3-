@@ -4,6 +4,8 @@ let rect1;
 let rect2; 
 let circle1;
 let circle2;
+let endScreen;
+let button;
 
 let hitX = 320;
 let hitWidth = 50;
@@ -24,7 +26,7 @@ let twoMinutes = 120000;
 let isCurrentlyTouching = false;
 
 //To - DO:
-// 1) start screen (see egg project, last year)
+                        // 1) start screen (see egg project, last year)
 // 2) restart screen - take when person doesn't beat it
                        // 3) the colour changing clock thing - as the person gets more hits the more the red ciorcle turns to green
 // 4) timer - once the timer ends, take you to end screen
@@ -33,7 +35,10 @@ let isCurrentlyTouching = false;
 function preload(){
 Cat = loadImage("Cat2.GIF");  
 BG = loadImage ("Background.PNG");
+endScreen = loadImage ("Start_BG.PNG");
 }
+
+//-------------------------------------
 
 function setup()
 {
@@ -44,14 +49,22 @@ function setup()
   showDebug();
 }
 
+//--------------------------------------
+
+
 var hit = false;
 var noHit = false; 
 
 function draw(){
  
 let countdown = 120-floor(millis()/1000); 
+//let countdown = 10-floor(millis()/1000); // testing time 
 let choice = random(missOptions);
 let angle = frameCount * 0.01;
+
+if (countdown <=0){
+  countdown = 0;
+}
 
 
 
@@ -108,20 +121,6 @@ if (noHit === true && isCurrentlyTouching === true ){
     fill("white");
     text(choice, 700, 1400);
     debug('try again!');  
-
-    // if (sizeX < 10 || sizeY < 10){
-    // sizeX = 10;
-    // sizeY = 10;
-    // }
-
-    // if(sizeX >105 || sizeY> 105){
-    //   sizeX = 105;
-    //   sizeY = 105;
-    // }
-
-    // if (sizeX >= 10 && sizeX <= 105 && sizeY >=10 && sizeY <=105){
-     
-    //}
   }
   
   if(hit === true && isCurrentlyTouching === true ){
@@ -154,16 +153,29 @@ if (noHit === true && isCurrentlyTouching === true ){
     sizeY = 10;
     }
 
+push(); 
 translate(775,781);
-//push();
 rotate(angle);
 fill('black');
 rect( 0,0, 4, 35);
+pop();
 
+if (countdown === 0 ){
+  
+  window.location.href = "index(end_page_lose).html";
+  
+ }
+
+//  if (countdown === 0 && sizeX === 105 && sizeY === 105){
+//    window.location.href = "index(end_page_win).html;";
+//  }
+
+ if(sizeX === 105 && sizeY === 105 && countdown >= 0){
+  window.location.href = "index(end_page_win).html";
+ }
 
 }
-
-  function touchStarted(){ //mouse will not work when active
+  function touchStarted(){ 
     isCurrentlyTouching = true;
    
    }
