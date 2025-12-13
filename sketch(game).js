@@ -27,10 +27,10 @@ let isCurrentlyTouching = false;
 
 //To - DO:
                         // 1) start screen (see egg project, last year)
-// 2) restart screen - take when person doesn't beat it
+                        // 2) restart screen - take when person doesn't beat it
                        // 3) the colour changing clock thing - as the person gets more hits the more the red ciorcle turns to green
-// 4) timer - once the timer ends, take you to end screen
-// 5) if the clock fully turns green, takes to celebration screen
+                      // 4) timer - once the timer ends, take you to end screen
+                      // 5) if the clock fully turns green, takes to celebration screen
 
 function preload(){
 Cat = loadImage("Cat2.GIF");  
